@@ -1,0 +1,20 @@
+relationship 993704b6-ab07-4573-8050-9210fa1d636b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_date.DATE_ID
+	toColumn: LocalDateTable_bb4a49d4-5d5a-4508-a5d9-51973a8ea455.Date
+
+relationship 0de653db-0ef5-4945-b46d-6e6281f117d4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_date.START_OF_WEEK
+	toColumn: LocalDateTable_0440633e-b376-49d5-95d2-ef888c205366.Date
+
+relationship 61f6304a-318f-4d45-8b32-16fd7192ac87
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_date.END_OF_WEEK
+	toColumn: LocalDateTable_b8fd08cc-488f-4020-b4e8-c86592f8f41f.Date
+
+relationship AutoDetected_61c34800-4205-49e4-9fb6-a0ea12e43f33
+	crossFilteringBehavior: bothDirections
+	fromColumn: dim_date_period.DATE_DIM_ID
+	toColumn: dim_date.DATE_DIM_ID
+

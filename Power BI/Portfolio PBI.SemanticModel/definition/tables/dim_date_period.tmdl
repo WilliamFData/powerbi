@@ -1,0 +1,42 @@
+table dim_date_period
+	lineageTag: a79731c3-a115-48cc-9070-553064aa82ee
+
+	column DATE_DIM_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: d2f8bb80-8f0c-42b7-bd73-ec621f985111
+		summarizeBy: none
+		sourceColumn: DATE_DIM_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATE_PERIOD
+		dataType: string
+		lineageTag: 5888ef10-d533-419f-9871-ffcb7016db34
+		summarizeBy: none
+		sourceColumn: DATE_PERIOD
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERIOD_ORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: 99074856-d976-406b-8473-7f9903ac25f1
+		summarizeBy: sum
+		sourceColumn: PERIOD_ORDER
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_date_period = m
+		mode: import
+		source =
+				let
+				    Source = Databricks.Catalogs("dbc-4698cbf8-b321.cloud.databricks.com", "/sql/1.0/warehouses/27f426417143fbe6", [Catalog=null, Database=null, QueryTags=null, EnableAutomaticProxyDiscovery=null, Implementation=null]),
+				    workspace_Database = Source{[Name="workspace",Kind="Database"]}[Data],
+				    dimensions_Schema = workspace_Database{[Name="dimensions",Kind="Schema"]}[Data],
+				    dim_date_period_View = dimensions_Schema{[Name="dim_date_period",Kind="View"]}[Data]
+				in
+				    dim_date_period_View
+
+	annotation PBI_ResultType = Table
+

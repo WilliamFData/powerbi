@@ -1,0 +1,23 @@
+model Model
+	culture: en-AU
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-AU
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["dim_date","dim_date_period"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table dim_date
+ref table DateTableTemplate_1b1ce96b-6189-47b7-8021-88698f8856fa
+ref table LocalDateTable_bb4a49d4-5d5a-4508-a5d9-51973a8ea455
+ref table LocalDateTable_0440633e-b376-49d5-95d2-ef888c205366
+ref table LocalDateTable_b8fd08cc-488f-4020-b4e8-c86592f8f41f
+ref table dim_date_period
+
+ref cultureInfo en-AU
+
